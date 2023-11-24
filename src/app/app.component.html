@@ -90,7 +90,19 @@ Directivas estructurales: *ngFor y el *ngIf
       <h3 class="pb-4 mb-4 font-italic border-bottom">
         Hola Mundo Ecuador
       </h3>
+      <hr>
+      <div *ngIf="mostrarIntroduccion" class="alert alert-info">
+        <h4 class="alert-heading">Angular Inf</h4>
+        <p>En esta sección se está utilizando ngIf y ngFor</p>
+      </div>
 
+      <div *ngIf="mostrarCaracteristicas">
+        <h4 class="mt-4">Características Principales de Angular</h4>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let caracteristica of caracteristicas">{{ caracteristica }}</li>
+        </ul>
+      </div>
+      <hr>
       <nav class="blog-pagination">
         <a class="btn btn-outline-primary" href="#">Angular</a>
         <a class="btn btn-outline-secondary disabled">TypeScript</a>
