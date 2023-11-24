@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  
   title = 'hola-mundo-ng';
 
   codigoUno = `import { Component } from '@angular/core';
@@ -26,6 +29,15 @@ export class AppComponent {
             <ul>
               <li *ngFor="let item of listaItems">{{ item }}</li>
             </ul>`
+  codigoTres = `{
+    "cli": {
+      "cache": {
+        "enabled": true,
+        "environment": "all",
+        "path": ".angular/cache"
+      }
+    }
+  }`
 
 
   mostrarIntroduccion = true;
@@ -36,4 +48,8 @@ export class AppComponent {
     'Lógica: Contienen la lógica de la aplicación en el archivo TypeScript asociado.',
     'Metadatos (Metadata): Los metadatos del componente, como decoradores, proporcionan información adicional sobre el componente.'
   ];
+
+
+
+
 }

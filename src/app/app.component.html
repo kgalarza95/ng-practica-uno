@@ -15,42 +15,45 @@ Estructura del body component
 Directivas estructurales: *ngFor y el *ngIf 
 -->
 
-
 <div class="container">
   <app-header></app-header>
 
-
   <app-navbar></app-navbar>
   <app-jumbotron></app-jumbotron>
-
 </div>
 
 <main role="main" class="container">
   <div class="row">
-
-
-
-
-
-
-
-
     <div class="col-md-8 blog-main">
-
       <div class="container">
         <h4 class="font-italic">Componentes en Angular:</h4>
         <p><strong>Definición:</strong></p>
-        <p>Un componente en Angular es una unidad lógica y reutilizable de una interfaz de usuario. Un componente
-          encapsula la lógica y la presentación de una parte específica de la aplicación.</p>
+        <p>
+          Un componente en Angular es una unidad lógica y reutilizable de una
+          interfaz de usuario. Un componente encapsula la lógica y la
+          presentación de una parte específica de la aplicación.
+        </p>
 
         <p><strong>Características Principales:</strong></p>
         <ul>
-          <li><strong>Plantilla (Template):</strong> Los componentes tienen una plantilla asociada que define la
-            estructura HTML de la interfaz de usuario.</li>
-          <li><strong>Estilos:</strong> Pueden tener estilos CSS específicos asociados.</li>
-          <li><strong>Lógica:</strong> Contienen la lógica de la aplicación en el archivo TypeScript asociado.</li>
-          <li><strong>Metadatos (Metadata):</strong> Los metadatos del componente, como decoradores, proporcionan
-            información adicional sobre el componente.</li>
+          <li>
+            <strong>Plantilla (Template):</strong> Los componentes tienen una
+            plantilla asociada que define la estructura HTML de la interfaz de
+            usuario.
+          </li>
+          <li>
+            <strong>Estilos:</strong> Pueden tener estilos CSS específicos
+            asociados.
+          </li>
+          <li>
+            <strong>Lógica:</strong> Contienen la lógica de la aplicación en el
+            archivo TypeScript asociado.
+          </li>
+          <li>
+            <strong>Metadatos (Metadata):</strong> Los metadatos del componente,
+            como decoradores, proporcionan información adicional sobre el
+            componente.
+          </li>
         </ul>
 
         <p><strong>Ejemplo de Componente:</strong></p>
@@ -65,15 +68,26 @@ Directivas estructurales: *ngFor y el *ngIf
       <div class="container mt-4">
         <h4 class="font-italic">Directivas Estructurales en Angular:</h4>
         <p><strong>Definición:</strong></p>
-        <p>Las directivas estructurales son instrucciones que alteran la estructura del DOM (Document Object Model).
-          Permiten controlar la visibilidad y la existencia de elementos en la interfaz de usuario.</p>
+        <p>
+          Las directivas estructurales son instrucciones que alteran la
+          estructura del DOM (Document Object Model). Permiten controlar la
+          visibilidad y la existencia de elementos en la interfaz de usuario.
+        </p>
 
         <p><strong>Directivas Estructurales Comunes:</strong></p>
         <ul>
-          <li><strong>ngIf:</strong> Se utiliza para mostrar o ocultar un elemento basado en una expresión condicional.
+          <li>
+            <strong>ngIf:</strong> Se utiliza para mostrar o ocultar un elemento
+            basado en una expresión condicional.
           </li>
-          <li><strong>ngFor:</strong> Se utiliza para repetir elementos en función de una expresión iterable.</li>
-          <li><strong>ngSwitch:</strong> Se utiliza para mostrar elementos diferentes basados en expresiones.</li>
+          <li>
+            <strong>ngFor:</strong> Se utiliza para repetir elementos en función
+            de una expresión iterable.
+          </li>
+          <li>
+            <strong>ngSwitch:</strong> Se utiliza para mostrar elementos
+            diferentes basados en expresiones.
+          </li>
         </ul>
 
         <p><strong>Ejemplo de Uso de Directivas Estructurales:</strong></p>
@@ -82,15 +96,10 @@ Directivas estructurales: *ngFor y el *ngIf
            {{codigoDos}}
           </code>
         </pre>
-
       </div>
 
-
-
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
-        Hola Mundo Ecuador
-      </h3>
-      <hr>
+      <h3 class="pb-4 mb-4 font-italic border-bottom">Hola Mundo Ecuador</h3>
+      <hr />
       <div *ngIf="mostrarIntroduccion" class="alert alert-info">
         <h4 class="alert-heading">Angular Inf</h4>
         <p>En esta sección se está utilizando ngIf y ngFor</p>
@@ -99,23 +108,98 @@ Directivas estructurales: *ngFor y el *ngIf
       <div *ngIf="mostrarCaracteristicas">
         <h4 class="mt-4">Características Principales de Angular</h4>
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let caracteristica of caracteristicas">{{ caracteristica }}</li>
+          <li
+            class="list-group-item"
+            *ngFor="let caracteristica of caracteristicas"
+          >
+            {{ caracteristica }}
+          </li>
         </ul>
       </div>
-      <hr>
+      <hr />
+
+      <hr />
+      <h1 class="mb-4">Novedades y Características de Angular CLI 13.0.0</h1>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Angular Cache</h5>
+          <p class="card-text">
+            La CLI ahora guarda su caché en disco por defecto, lo que mejora el
+            rendimiento al ejecutar comandos como ng serve o ng build. Para
+            habilitarlo, ejecutar el siguiente comando en la terminal:
+          </p>
+          <pre><code>ng config cli.cache.enabled true</code></pre>
+          <p class="card-text">
+            Para habilitarlo en todo el proyecto modificando el archivo
+            angular.json:
+          </p>
+          <pre><code>
+            {{codigoTres}}
+          </code></pre>
+          <p class="card-text">
+            Esta característica reemplaza el antiguo NG_PERSISTENT_BUILD_CACHE.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Diferential Loading Eliminado</h5>
+          <p class="card-text">
+            La carga diferencial, introducida en Angular CLI 8.0, se ha
+            eliminado en la versión 13.0.0. Dado que IE11 ya no es compatible,
+            ng build ya no realiza la carga diferencial y solo emite código
+            ES2015+.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Automático Migraciones</h5>
+          <p class="card-text">
+            Algunos esquemas de Angular actualizarán automáticamente los
+            archivos de configuración al actualizar a la versión 13.0.0.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Eliminación de Internet Explorer 11</h5>
+          <p class="card-text">
+            Dado que IE11 ya no es compatible, se ha eliminado la configuración
+            relacionada con la compatibilidad con Internet Explorer en la CLI.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Eliminación de Comandos de Producción</h5>
+          <p class="card-text">
+            Los comandos de producción, como ng build-prod, han sido eliminados.
+            Ahora se puede utilizar un único comando, ng build, para construir la
+            aplicación en modo de producción.
+          </p>
+        </div>
+      </div>
+
+      <hr />
+
       <nav class="blog-pagination">
         <a class="btn btn-outline-primary" href="#">Angular</a>
         <a class="btn btn-outline-secondary disabled">TypeScript</a>
       </nav>
-
-    </div><!-- /.blog-main -->
+    </div>
 
     <aside class="col-md-4 blog-sidebar">
       <div class="p-4 mb-3 bg-light rounded">
         <h4 class="font-italic">Componentes en Angular</h4>
         <p class="mb-0">
-          En Angular, los componentes y las directivas estructurales son elementos fundamentales para la construcción de
-          aplicaciones.
+          En Angular, los componentes y las directivas estructurales son
+          elementos fundamentales para la construcción de aplicaciones.
         </p>
       </div>
 
@@ -148,10 +232,8 @@ Directivas estructurales: *ngFor y el *ngIf
           <li><a href="#">Octubre 2012 (v0.8)</a></li>
         </ol>
       </div>
-    </aside><!-- /.blog-sidebar -->
-
-  </div><!-- /.row -->
-
+    </aside>
+  </div>
 </main>
 
 <app-footer></app-footer>
